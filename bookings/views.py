@@ -249,3 +249,12 @@ def increase_available_spaces(request, chosen_class_id):
     updated_spaces = spaces + 1
     chosen_yoga_class.available_spaces = updated_spaces
     chosen_yoga_class.save()
+
+
+def delete_note(request, note_id):
+    """
+    It deletes note.
+    """
+    note = get_object_or_404(Notes, id=note_id)
+    note.delete()
+    return redirect('reservations')

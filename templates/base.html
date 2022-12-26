@@ -78,6 +78,18 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissable fade show text-center" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main class="mb-auto">
 
@@ -96,10 +108,9 @@
             <a class="m-0 text-white" href="https://www.youtube.com/channel/UCy0t4xNDYyBsJD5p8LFwOdA?view_as=subscriber" target="_blank" rel="noopener" aria-label="Visit our YouTube page (opens in a new tab)."><i class="fab fa-youtube-square ms-3"></i></a>
             </p>    
     </footer>
-
+ 
     {% block script %}
     <script src="{% static 'js/script.js' %}"></script>
     {% endblock script %}
-
 </body>
 </html>
