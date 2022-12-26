@@ -23,11 +23,174 @@ div .btn {
 .opaque {
     background-color: #f8f9fa73;
 }
-
 .opaque2 {
     background-color: #f8f9faa1;
+    
+}
+div .card {
+    --bs-card-bg:#f8f9faa1;
 }
 
 .footer-bg {
     background-color: #4c250482;
+    /* background-color: #708090a6; */
+}
+/* backgouds */
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+/* fonts and text styles */
+body, th{
+    font-family: 'Source Serif Pro', serif;
+    font-size: 1rem;  
+}
+
+.navbar, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+   
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-nav .nav-item .nav-link, form button,
+a, .btn {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+form button {
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+}
+
+form .btn-signup {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 2.7rem;
+}
+.text-align, h2{
+    text-align: center;
+}
+
+th {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+footer p, footer p a {
+    font-size: 1.7rem;
+}
+
+/* sizes */
+
+body {
+    height:100vh;
+}
+
+th {
+    min-width: 9rem;
+}
+
+/* paddings and margins */
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-brand {
+    padding-left: 1rem;
+}
+
+.container-fluid {
+    padding-right: var(--bs-gutter-x,0.1rem);
+    padding-left: var(--bs-gutter-x,0.3rem);
+}
+
+.main-cont, .main-cont-about {
+    padding-top: 10vw;
+}
+
+.cl-title{
+    padding-top: 5rem;
+    padding-left: 5rem;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.2rem 0.5rem;
+}
+
+.row {
+    --bs-gutter-x: 0px;
+}
+
+.card-pos {
+    padding-bottom: 17rem;
+}
+
+.res-cont {
+    margin: 1rem 3rem;
+}
+
+/* effects */
+.navbar-light .navbar-nav .nav-link.active:hover,
+.navbar-light .navbar-brand:hover,
+.navbar-nav .nav-item .nav-link:hover,
+a:hover, .btn:hover, form button:hover, p .link:hover,
+form .btn-signup:hover, form a:hover,
+p a:hover, .alert a:hover, p .btn:hover, div button a:hover,
+div .btn:hover, span a:hover, a h2:hover, a p:hover,
+.post-link:hover{
+    color: black;
+}
+
+form button:active, p .link:active,
+form .btn-signup:active, form a:active,
+p a:active, .alert a:active, p .btn:active,div button a:active,
+div .btn:active, span a:active, a h2:active,
+a p:active, .post-link:active{
+    color: #3e1d00;
+    box-shadow: none;
+}
+
+form .btn-signup:hover {
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/*Media queries*/
+@media screen and (max-width: 1200px) {
+    .main-cont-about {
+        padding-top: 30vw;
+    }
+}
+@media screen and (max-width: 950px) {
+    body {
+    background-size: contain;
+    }
+    .card-pos{
+      padding-top: 30rem;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+  
+    .navbar-light .navbar-brand {
+        font-size: 2rem;
+        padding-left: 1rem;
+    }
+    .main-cont {
+        padding-top: 20vh;
+        
+    }
+    .card-pos {
+        padding-top: 10rem;
+      }
+
+      .res-cont {
+        margin: 15rem 1rem 3rem 1rem;
+    }
 }

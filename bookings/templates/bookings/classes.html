@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block additional_styles %}
+<!-- Page background -->
+<style>
+  body {
+    background-image: url('https://res.cloudinary.com/dxihsonor/image/upload/v1672077555/Site_images/classes_bg_in1bis.webp');
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="row p-5 mt-5">
+  <div class="col-12">
+    <h1>My Classes:</h1>
+  </div>
+</div>
+<!-- Yoga types cards -->
+<div class="row row-cl justify-content-around card-pos">
+  {% for yoga_type in yoga_types_list %}
+  <div class="col-md-3 col-7">
+    <div class="card border-0">
+      <img class="card-img-top" src="{{ yoga_type.featured_image.url }}" alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title text-uppercase">{{ yoga_type.title }}</h3>
+        <p class="card-text">{{ yoga_type.introduction | safe }}</p>
+        <button type="button" class="btn text-uppercase fs-5 text-decoration-underline" data-bs-toggle="modal"
+          data-bs-target="#type{{ yoga_type.id }}">
+          More >>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="type{{ yoga_type.id }}" tabindex="-1" aria-labelledby="{{ yoga_type.id }}Label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-header">
+          <h5 class="modal-title text-center" id="{{ yoga_type.id }}Label">{{ yoga_type.title }}:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{ yoga_type.description | safe }}<br>
+          {% if user.is_authenticated %}
+          <a href="#">Book a Class</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% endblock %}
