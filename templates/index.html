@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Alert sign up -->
+<div class="container-fluid alert-container gx-0">
+    <div class="row pt-3 d-none d-sm-block">
+        <div class="col-12">
+            <div class="site-wide-alert alert alert-warning text-center fs-6 p-0 mb-5">
+                <strong>Register Now!</strong> Sign up today to start booking classes!
+                <a href="{% url 'account_signup' %}">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header -->
+<div class="container-fluid gx-0">
+    <div class="jumbotron">
+        <h1 class="fs-big text-center pt-3 opaque2">EXPAND YOUR ENERGY</h1>
+    </div>
+</div>
+<div class="container-fluid main-cont gx-0">
+    {% if todays_class %}
+    {% for class in todays_class %}
+    <!-- Callout today's class-->
+    <div class="row justify-content-end">
+        <div class="col-md-4 align-self-end">
+            <section class="callout text-center opaque2 pb-3">
+                <h2>Today's Class:</h2>
+                <p class="fs-4">{{ class.yoga_type }}: {{ class.time }}<br></p>
+            </section>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<!-- Introduction -->
+<div class="row pt-5 pb-5 align-items-end">
+    <div class="col-xl-4 col-lg-12 pt-3 opaque2">
+        <h2 class="p-3">YOGA WITH CARMEN</h2>
+        <p class="pt-3 px-3 fs-5">My aim is to help people who deal with postural problems and muscle stiffness to
+            feel better through
+            specific exercises from the yoga tradition and much more.
+            During my classes I combine Asana and Kriya with specific stretching and strengthening
+            exercises from postural gymnastics, and dance in order to increase the benefits of all these
+            disciplines and unblock the energy flow.
+        </p>
+    </div>
+</div>
+
+<!-- Quotes -->
+<div class="container-wrapper pt-5">
+    <div class="container quotes-container content-container">
+        <section class="quotes bg-white">
+            <div class="row mt-3">
+                <div class="col-12 page-header">
+                    <h2 class="text-uppercase">Quotes:</h2>
+                    <hr class="block-divider block-divider--short">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="media">
+                        <div class="d-none d-sm-block">
+                            <img src="https://res.cloudinary.com/dolts3yad/image/upload/v1672052468/site_images/quote1_u5ef4h.webp"
+                                class="rounded-circle mr-3" height=100 width=100 alt="girl-image">
+                        </div>
+                        <div class="media-body">
+                            <blockquote class="blockquote">
+                                <p>It feels great to take care of yourself, body and mind!</p>
+                                <p>- Jane Doe</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="media">
+                        <div class="d-none d-sm-block">
+                            <img src="https://res.cloudinary.com/dolts3yad/image/upload/v1672052469/site_images/quote2_sgzhnp.webp"
+                                class="rounded-circle mr-3" height=100 width=100 alt="guy-image">
+                        </div>
+                        <div class="media-body">
+                            <blockquote class="blockquote">
+                                <p>After starting this new routine my energy and my mood drastically improved!
+                                    No more laziness!</p>
+                                <p>- John Doe</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{%endblock%}

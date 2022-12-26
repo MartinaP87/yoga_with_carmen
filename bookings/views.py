@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import User, YogaType, YogaClass, Reservation, Notes
+from datetime import date, timedelta
 
 
 def home_page(request):

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from bookings import views
 
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path("info/", views.info, name="info"),
     path("classes/", include("bookings.urls"), name="bookings-urls"),
     path('summernote/', include('django_summernote.urls')),
+    path("accounts/", include("allauth.urls")),
 ]

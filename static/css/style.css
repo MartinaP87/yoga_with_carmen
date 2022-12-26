@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+Pro&display=swap');
+ 
+/*colours*/
+body, .navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-brand, button,
+div.card-body, .cl-title {
+    color: #3e1d00;
+    --bs-body-color: #3e1d00;
+}
+
+.navbar-nav .nav-item .nav-link,
+div a, .alert a, .btn, h6,
+div.card-body button, p .btn, a .btn,
+div .btn {
+    color: #4c2504;
+    --bs-btn-color: #4c2504;
+}
+
+.grad {
+    background-image: linear-gradient(to right, #fcfdff , rgba(249, 249, 245, 0));
+  }
+
+.opaque {
+    background-color: #f8f9fa73;
+}
+
+.opaque2 {
+    background-color: #f8f9faa1;
+}
+
+.footer-bg {
+    background-color: #4c250482;
+}
