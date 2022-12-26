@@ -213,3 +213,28 @@ def reduce_available_spaces(request, chosen_class_id):
     updated_spaces = spaces - 1
     chosen_yoga_class.available_spaces = updated_spaces
     chosen_yoga_class.save()
+
+
+def delete_reservation(request, reservation_id):
+    """
+    It's called when the user deletes a valid reservation.
+    It triggers the increase_available_spaces function.
+    """
+    reservation = get_object_or_404(Reservation, id=reservation_id)
+    reserved_class_id = reservation.yoga_class_id
+    reservation.delete()
+    increase_available_spaces(request, reserved_class_id)
+    return redirect('reservations')
+
+
+def increase_available_spaces(request, chosen_class_id):
+    """
+    It increases by one the number of available spaces in a yoga class
+    every time it's called.
+    """
+    queryset = YogaClass.objects.filter(status=1)
+    chosen_yoga_class = get_object_or_404(queryset, id=chosen_class_id)
+    spaces = int(chosen_yoga_class.available_spaces)
+    updated_spaces = spaces + 1
+    chosen_yoga_class.available_spaces = updated_spaces
+    chosen_yoga_class.save()

@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.class_list, name='classes'),
     path('book/', views.book, name='book'),
     path('reservations/', views.reservations, name='reservations'),
+    path('delete/<reservation_id>', views.delete_reservation, name='delete'),
 ]
