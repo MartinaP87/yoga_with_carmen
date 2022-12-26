@@ -34,7 +34,7 @@
   <div class="col-12 pt-0 pb-2">
     <p class="d-inline">{{ note.annotation }}</p>
     <button type="button" class="btn btn-ligh btn-sm d-inline" data-bs-dismiss="modal"><a
-        href="#">Edit</a></button>
+        href="{% url 'edit_note' note.id %}">Edit</a></button>
     <!-- Button trigger modal delete note -->
     <button type="button" class="btn btn-ligh d-inline text-decoration-underline" data-bs-toggle="modal"
       data-bs-target="#modal-note{{ note.id }}">
@@ -105,4 +105,3 @@
 </div>
 <!-- </div> -->
 {% endblock %}
-
