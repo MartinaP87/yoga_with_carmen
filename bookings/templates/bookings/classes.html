@@ -43,7 +43,7 @@
         <div class="modal-body">
           {{ yoga_type.description | safe }}<br>
           {% if user.is_authenticated %}
-          <a href="#">Book a Class</a>
+          <a href="{% url 'book' %}">Book a Class</a>
           {% endif %}
         </div>
       </div>

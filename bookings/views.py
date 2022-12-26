@@ -50,7 +50,18 @@ def reservations(request):
     It passes all notes to the template.
     """
     reservations = Reservation.objects.all()
+    note_form = NotesForm()
+    note_form.fields["reservation"].queryset = Reservation.objects.filter(
+                member=request.user)
+    if request.method == 'POST':
+        note_form = NotesForm(request.POST)
+        if note_form.is_valid():
+            new_note = note_form.save()
+            return redirect('reservations')
+    notes = Notes.objects.all()
     context = {
+        'note_form': note_form,
+        'notes': notes,
         'reservations': reservations
     }
     return render(request, 'bookings/reservations.html', context)
