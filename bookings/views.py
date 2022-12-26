@@ -41,6 +41,21 @@ def info(request):
     return render(request, "info.html")
 
 
+def reservations(request):
+    """
+    It renders reservations and passes the
+    reservations to the template.
+    It renders Notes form and handles
+    validation to create a new note.
+    It passes all notes to the template.
+    """
+    reservations = Reservation.objects.all()
+    context = {
+        'reservations': reservations
+    }
+    return render(request, 'bookings/reservations.html', context)
+
+
 def book(request):
     """
     It renders book_class and passes classes to the template.

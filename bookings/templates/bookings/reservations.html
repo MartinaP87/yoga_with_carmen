@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block additional_styles %}
+<!-- Page background -->
+<style>
+    body {
+        background-image: url('https://res.cloudinary.com/dxihsonor/image/upload/v1672077575/Site_images/reservation_bg_j5gmlb.webp');
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid grad res-cont mb-2">
+    <!-- Header -->
+    <h2 class="pt-5 pb-3">Your Reservations:</h2>
+    <!-- Reservations details -->
+    {% for reservation in reservations %}
+    {% if user == reservation.member %}
+    <div class="row">
+        <div class="col-12">
+            <p class="d-inline fs-3 p-2">{{ reservation.yoga_class.yoga_type }}:<br>
+                {{ reservation.yoga_class.day|date:"l, d M" }} time:
+                {{ reservation.yoga_class.time }}</p>
+            <!-- Button trigger modal delete reservation -->
+            <button type="button" class="btn btn-ligh d-inline text-decoration-underline" data-bs-toggle="modal"
+                data-bs-target="#modal-res{{ reservation.id }}">
+                <p>Delete</p>
+            </button><br>
+        </div>
+    </div>
+
+    <!-- Modal Delete Reservation-->
+    <div class="modal fade" id="modal-res{{ reservation.id }}" tabindex="-1" aria-labelledby="modalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Delete {{ reservation.yoga_class.yoga_type }} class</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this reservation?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-ligh btn-sm" data-bs-dismiss="modal">Don't Delete</button>
+                    <button type="button" class="btn btn-ligh btn-sm"><a href="#"
+                            class="post-link">Delete<br></a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
