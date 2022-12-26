@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+<!-- Page background -->
+{% block additional_styles %}
+<style>
+  body {
+    background-image: url('https://res.cloudinary.com/dxihsonor/image/upload/v1672077554/Site_images/book_bg_yiofon.webp');
+    background-repeat: repeat-x;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-md-center mt-5">
+    <!-- Title form -->
+    <div class="col col-3 d-inline align-self-end opaque2">
+      <h1 class="d-inline fs-2">Book Your Class:</h1>
+    </div>
+    <!-- Class reservation form -->
+    <div class="col-md-auto">
+      <form method="post" class="d-inline">
+        {{ form | crispy }}
+        {% csrf_token %}
+    </div>
+    <div class="col col-3 pb-3 d-inline align-self-center opaque2">
+      <button type="submit" class="btn btn-signup btn-lg d-inline pb-0 text-decoration-underline">Book Your
+        Spot!</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Yoga classes -->
+{% for yoga_class in yoga_classes %}
+<div class="row d-none">
+  <div class="col-8 offset-2">
+    <p class="class_title">{{ yoga_class.yoga_type }}</p>
+    <p class="class_id">{{ yoga_class.id }}</p>
+    <p class="day">{{ yoga_class.day|date:"l, d M" }}</p>
+    <p class="time">{{ yoga_class.time }}</p>
+    <p>{{ yoga_class.available_spaces }}</p>
+  </div>
+</div>
+{% endfor %}
+<!-- Yoga classes calendar -->
+<div class="row mt-5">
+  <div class="p-3">
+    <table class="w-auto table table-bordered table-hover table-responsive opaque2">
+      <thead>
+        <tr class="cols">
+          <th scope="col"></th>
+          {% for days in week_days %}
+          <th class="day{{ forloop.counter }}" scope="col">{{ days|date:"l, d M" }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for time_slot in time_slots %}
+        <tr class="rows">
+          <th scope="row">{{ time_slot }}</th>
+          {% for days in week_days %}
+          <td class="day{{ forloop.counter }}"></td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}
