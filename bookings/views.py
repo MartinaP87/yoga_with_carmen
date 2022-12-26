@@ -23,6 +23,13 @@ def about(request):
     return render(request, "about.html")
 
 
+def info(request):
+    """
+    It renders the info page.
+    """
+    return render(request, "info.html")
+
+
 def class_list(request):
     """
     It renders classes and passes the class list to the template.
@@ -32,13 +39,6 @@ def class_list(request):
         'yoga_types_list': yoga_types_list
     }
     return render(request, "bookings/classes.html", context)
-
-
-def info(request):
-    """
-    It renders the info page.
-    """
-    return render(request, "info.html")
 
 
 def reservations(request):
@@ -249,6 +249,26 @@ def increase_available_spaces(request, chosen_class_id):
     updated_spaces = spaces + 1
     chosen_yoga_class.available_spaces = updated_spaces
     chosen_yoga_class.save()
+
+
+def edit_note(request, note_id):
+    """
+    It renders edit_form and passes the edit form to
+    the edit_form template allowing the user to update notes.
+    """
+    note = get_object_or_404(Notes, id=note_id)
+    edit_form = NotesForm(instance=note)
+    edit_form.fields["reservation"].queryset = Reservation.objects.filter(
+                member=request.user)
+    if request.method == 'POST':
+        edit_form = NotesForm(request.POST, instance=note)
+        if edit_form.is_valid():
+            edit_form.save()
+            return redirect('reservations')
+    context = {
+        'edit_form': edit_form
+    }
+    return render(request, "bookings/edit_note.html", context)
 
 
 def delete_note(request, note_id):
