@@ -62,3 +62,198 @@ The design of the website has been implemented using Balsamiq wireframes. The wi
 - [Create draft posts](https://github.com/MartinaP87/power-yoga/issues/4)
 - [Manage posts](https://github.com/MartinaP87/power-yoga/issues/5)
 - [Approve comments](https://github.com/MartinaP87/power-yoga/issues/3)
+
+## FEATURES:
+
+### Navbar
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/navbar_2_zs6izt.png">
+
+- The fully responsive navigation bar appears on all pages;
+- It includes links to the Logo, Home page, About, Classes, Blog, Sign-in, and Sign Up page and is identical on each page to allow for easy navigation.
+- When the user is logged in, the navbar also displays a link to Book and Reservations, which are restricted areas;
+- This section will allow the user to easily navigate from page to page across all devices without reverting to the previous page via the ‘back’ button;
+- When the screen size reduces to the breakpoint, the navbar collapse into a hamburger menu.
+
+### Callout Section
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/callout_ik9agz.png">
+
+- It displays a message that encourages the user to sign up;
+- It includes a link to the Sign Up page to facilitate the process.
+
+
+### Introduction Section
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/introduction_rwxehu.png">
+
+- The introduction section will allow the user to have a quick overview of the purpose of the site and the yoga types practiced;
+- In this section, the user will see the benefits of this practice. This should motivate the user to participate in the classes.
+
+### Today's Classes Section
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/todays_class_xcmqst.png">
+
+- This section  is displayed when there is/are a class/es on the current day;
+- It shows the class details so that the user can make a booking or have a reminder;
+- When there are no classes on the current day, the section doesn't show.
+
+### Quotes Section
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/quotes_ne849k.png">
+
+- This section provides the  user feedback about the course;
+- It motivates the user to subscribe and participate in the classes.
+
+### Footer
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/footer_nhty5a.png">
+
+- The footer section includes links to Carmen's social media sites;
+- The links will open to a new tab to allow easy navigation for the user;
+- The footer is helpful to the user as it encourages them to keep connected via social media;
+- This section appears on all pages.
+
+### Yoga Benefits Section
+ <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/yoga_benefits_mhad2b.png">
+
+- This section explains to the user the additional values yoga can bring to their life.
+
+### My Passion For Yoga Section
+<img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/my_passion_for_yoga_qm64xb.png">
+
+- Describes Carmen's first steps into yoga discipline and the journey that brought her to become a yoga teacher;
+- The experience presented in the section gives the user the feel of a human connection since he can now relate to Carmen as a real person.
+
+### Yoga Class Section
+<img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140879/Readme%20images/class_type_card_q077im.png">
+
+- This section has an image to allow the user to have a visual acknowledgment of the exercises practiced in the class;
+- This section has a button that opens a modal whit the full description of what the class involves to allow the user to understand which yoga type suits them best;
+- The modal contains a button that redirects the user to the booking page;
+- If the user is not signed in, the button in the modal doesn't display.
+
+### Post Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/blog_post_mvm6ov.png">
+
+- This section has an image to allow the user to have a visual acknowledgment of what the post is about;
+- It has a title that links to the specific page of the post;
+- Under the title is displayed the date when the post was published and the number of likes.
+
+### Post Page Title Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/post_page_title_dwffym.png">
+
+- This section displays the title of the post on which the user previously clicked;
+- Under the title, it displays the username of the publisher and the date when the post was published.
+
+### Post Page Content Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/post_content_aesnjp.png">
+
+- This section displays the content of the post that the user chose.
+
+### Like Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/post_like_vyzqkl.png">
+
+- This section displays the number of likes that the relevant post received;
+- If signed in, the user can click on the heart icon to leave a like and click again to remove it;
+- This section adds interactivity to the website and allows to leave effortless feedback to show appreciation;
+- If not signed in, the user can only view the likes, and clicking on the icon won't have any effect.
+
+### Messages Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/post_commented_h7a56x.png">
+
+- This section displays the number of comments that the relevant post received.
+
+### Comments Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/comments_hkajiu.png">
+
+- This section displays the approved comments written by the admin and users, along with the username and date related to them;
+- The comments are ordered by date, with the most recent at the top;
+- This section allows the user easily follow the conversation.
+
+### Comments Form Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/comment_form_m9ihmv.png">
+
+- This section displays a form that allows the user to leave feedback;
+- Through this section, the user can interact with other users;
+- Once the comment is submitted, the user receives feedback about the successful submission and the approval status.
+
+### Info Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140879/Readme%20images/info_xqxbmd.png">
+
+- This section displays the studio's location, which is where the classes take place;
+- It displays the yoga teacher's contact details so the user can get in touch with her for any inquiry.
+
+### Booking Form Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140879/Readme%20images/booking_form_jppwsr.png">
+
+- This section displays a form to make a reservation for a class;
+- The dropdown menu displays the classes present on the calendar, and the user can choose from them;
+- Once the form is submitted, the user receives feedback on whether the booking has been successful or not, and in that case, it explains the reason for the failure.
+
+### Calendar Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/calendar_aggttp.png">
+
+- This section displays a table with the time slots and the days of the current and next week;
+- The days row updates automatically so that the current week is always close-up;
+- Every time a class is published is displayed on the calendar in the relevant cell;
+- This disposition facilitates the view of the classes for a better time planning for the user.
+
+### Reservations Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140883/Readme%20images/reservations_i0w6c1.png">
+
+- This section displays the classes booked by the logged-in user and the relative details;
+- If the user leaves a note about a class, it displays under the relevant reservation;
+- Every reservation has a delete button that, when clicked, calls a modal to receive confirmation of deletion;
+- This section is a reminder for the user of the booked classes.
+
+### Notes Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/note_qbvjtd.png">
+
+- This section displays notes written by the user;
+- Every note is under the reservation it refers to;
+- This section is private, so only the logged-in user can access it;
+- Next to each note, there is an edit button that links to an edit note page;
+- Next to the edit button, there is a delete button that, when clicked, calls a modal to confirm the deletion.
+
+### Add Notes Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/add_note_form_lweg9t.png">
+
+- This section displays a form that allows the user to add a note to a reservation;
+- The user can choose the reservation to comment on from a dropdown menu.
+
+### Edit Notes Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140880/Readme%20images/edit_note_form_opngw7.png">
+
+- This section displays a form that allows the user to edit a note;
+- The updated note takes the place of the previous one under the relevant reservation.
+
+### Sign Up Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140882/Readme%20images/sign_up_eqxmf9.png"> 
+
+- This section allows the user to create a private account through which they can book classes, write notes, like and comment on posts; 
+- The section displays a paragraph for users that already have an account, inviting them to click on the sign-in button to redirect them to the sign-in form;
+- The section has a form requesting the user's information to create an account;
+If the form is not filled correctly, it displays error  messages relative to the issue;
+- Once the form is filled up correctly, the submission redirects the user to the home page and shows a success message.
+
+### Login Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140883/Readme%20images/sign_in_jcuqlh.png">
+
+- This section allows the user to sign in to their private account through which they can book classes, write notes, like and comment on posts; 
+- The section displays a paragraph for users that don't already have an account, inviting them to click on the sign-up button to redirect them to the sign-up form;
+- The section has a form requesting the user's information to login into their account;
+- If the form is not filled correctly, it displays error  messages relative to the issue;
+- Once the form is filled up correctly, the submission redirects the user to the home page and shows a success message;
+- Under the form, the section displays a 'remember me' thick box. If the user selects it, it saves the details for the next visit;
+- Under the thick box, there is a 'forgot password?' link, that redirects the user to a form to reset the password.
+
+### Logout Section
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140879/Readme%20images/sign_out_nmcfng.png">
+
+- The section requests the user a logout confirmation;
+- Once logged out, the user is redirected to the home page and won't be able to access the restricted areas;
+- After the logout, a feedback message displays to acknowledge the user about the outcome of the action.
+
+## Future Features To Implement
+- A filtration system to view only the available classes in the booking form;
+- A mail system that allows the users to receive an email when the admin deletes or updates a class previously booked;
+- A mail system that sends a 'free week classes' when a user signs up;
+- A feature to display live classes;
+- A system to store classes videos and sell them as packages;
+- A payment system to buy lessons packages;
+- A feature to buy a package and send it as a gift, making sure that only one device can access it.
