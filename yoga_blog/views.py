@@ -59,3 +59,17 @@ def post_detail(request, slug):
                 "comment_form": comment_form,
             }
     return render(request, "yoga_blog/post_detail.html", context)
+
+
+def post_like(request, slug):
+    """
+    It toggles likes; It removes the like if it already
+    exists or adds the like if previously not applied.
+    """
+    post = get_object_or_404(Post, slug=slug)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return redirect('post_detail', slug)
