@@ -257,3 +257,298 @@ If the form is not filled correctly, it displays error  messages relative to the
 - A system to store classes videos and sell them as packages;
 - A payment system to buy lessons packages;
 - A feature to buy a package and send it as a gift, making sure that only one device can access it.
+
+## Testing:
+
+- I have conducted the testing of all models, forms, and views HTTPResponses using the Django built-in tool Unittes. From settings.py I commented out the Postgres DATABASE and used instead:
+**DATABASES = {**
+  **'default': {**
+      **'ENGINE': 'django.db.backends.sqlite3',**
+      **'NAME': BASE_DIR / 'db.sqlite3',**
+  **}**
+**}**
+
+### Manual Testing
+- I have conducted manual testing using print statements and/or checking the outcomes on the browser. 
+The results are described underneath:
+
+### Bookings Views
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/python_testing_bookings_fvpsra.png">
+
+<table>
+<thead>
+<tr>
+<th>Action or Event</th>
+<th>Expected Result</th>
+<th>Successful?<th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reservations function:</td>
+</tr>
+<tr>
+<td>Reservation.objects.all()</td>
+<td>Returns a QuerySet that contains all Reservation objects in the database.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>note_form = NotesForm()</td>
+<td>Returns a form with all option values.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>note_form.fields["reservation"].queryset = Reservation.objects.filter(
+                member=request.user)</td>
+<td>Filters the note form field reseravtion to only the logedin user's reservations.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if request.method == 'POST':
+        note_form = NotesForm(request.POST)</td>
+<td>The note form is displayed, and the field's options are limited to only the logged-in users.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>new_note = note_form.save()</td>
+<td>The new note instance is created and displayed.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>get_days function:</td>
+</tr>
+<tr>
+<td>today = date.today()</td>
+<td>It picks today's date.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>start = today - timedelta(days=today.weekday())</td>
+<td>It picks the first day of the current week.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>end = start + timedelta(days=13)</td>
+<td>It picks the last day of the following week.</td>
+<td>Yes</td>
+</tr>
+<td>dates = [start + timedelta(days=i) for i in range((end-start).days+1)]</td>
+<td>It returns the range of dates between the first day of this week and the last of the following.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>no_obsolete_classes function:</td>
+</tr>
+<tr>
+<td>yoga_classes = YogaClass.objects.filter(status=1)</td>
+<td>Returns a QuerySet that contains all YogaClass objects with status 1 (published) in the database.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>for yoga_class in yoga_classes:
+            if yoga_class.day < week_days[0]:
+                yoga_class.delete()</td>
+<td>It deletes classes older than this week.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>yoga_classes_available_now function:</td>
+</tr>
+<tr>
+<td>yoga_classes_available = []
+    for yoga_class in yoga_classes:
+        if yoga_class.day >= date.today():
+            yoga_classes_available.append(yoga_class)</td>
+<td>It pushes in the yoga_classes_available array only the classes from today on.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>check_double_booking function:</td>
+</tr>
+<tr>
+<td>reservation = get_object_or_404(Reservation, id=reservation_id)</td>
+<td>It returns a reservation with a specific id, which in our case, is the new reservation id.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>yoga_class_user_reservations = Reservation.objects.filter(
+        yoga_class_id=reservation.yoga_class_id, member=current_user)</td>
+<td>It returns all the reservations of the current user and the same class.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if yoga_class_user_reservations.count() > 1:
+        messages.error(
+                request, "You are already booked \
+                    in for this class!")
+        reservation.delete()</td>
+<td>If the user already has a reservation for the class, display an error message.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>else:
+        reserved_class_id = reservation.yoga_class_id
+        updated_reservation = update_approval(
+                        request, reservation.id)</td>
+<td>If the user hasn't a reservation for the class, call the update_approval function.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>update_approval function:</td>
+</tr>
+<tr>
+<td>reservation = get_object_or_404(Reservation, id=reservation_id)
+    reserved_class_id = reservation.yoga_class_id
+    queryset = YogaClass.objects.filter(status=1)
+    chosen_yoga_class = get_object_or_404(queryset, id=reserved_class_id)</td>
+<td>It retrieves the class the user reserved.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if chosen_yoga_class.available_spaces > 0:
+        reservation.approved
+        reservation.save()
+    else:
+        reservation.approved = False
+        reservation.save()</td>
+<td>It checks if the chosen class has a number of available_space higher than 0. If it does, the approved status is set to True otherwise is set to False.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>fully_booked function:</td>
+</tr>
+<tr>
+<td>if reservation.approved:
+        messages.success(
+            request, 'Your booking was successful!')
+        reduce_available_spaces(
+            request, reservation.yoga_class_id)</td>
+<td>If the reservation is approved, it displays a success message.
+</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>reduce_available_spaces function:</td>
+</tr>
+<tr>
+<td>queryset = YogaClass.objects.filter(status=1)
+    chosen_yoga_class = get_object_or_404(queryset, id=chosen_class_id)</td>
+<td>It retrieves the class just booked.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>spaces = int(chosen_yoga_class.available_spaces)
+    updated_spaces = spaces - 1
+    chosen_yoga_class.available_spaces = updated_spaces</td>
+<td>It reduces the number of available spaces of the booked yoga class.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>chosen_yoga_class.save()</td>
+<td>It saves the change just made for the next iteration.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>delete_reservation function:</td>
+</tr>
+<tr>
+<td>reservation.delete()
+    increase_available_spaces(request, reserved_class_id)</td>
+<td>It deletes the reservation and calls the increase_avaliable_spaces function.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>increase_avaliable_spaces function:</td>
+</tr>
+<tr>
+<td>queryset = YogaClass.objects.filter(status=1)
+    chosen_yoga_class = get_object_or_404(queryset, id=chosen_class_id)</td>
+<td>It retrieves the class just booked.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>spaces = int(chosen_yoga_class.available_spaces)
+    updated_spaces = spaces + 1
+    chosen_yoga_class.available_spaces = updated_spaces</td>
+<td>It increases the number of available spaces for the booked yoga class.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>chosen_yoga_class.save()</td>
+<td>It saves the change just made for the next iteration.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>valid_reservation function:</td>
+</tr>
+<tr>
+<td>if reservation.yoga_class in bookable_classes:
+        check_double_booking(request, reservation.id)</td>
+<td>If the reservation is in the correct time frame, it calls the   check_double_booking function.</td>
+<td>Yes</td>
+</tr>
+<td>else:
+        messages.error(request, "This class is not longer available")
+        reservation.delete()</td>
+<td>If the reservation is not in the correct time frame, it displays an error message and deletes the reservation.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>book function:</td>
+</tr>
+<tr>
+<td>week_days = get_days(request)
+    yoga_classes = no_obsolete_classes(request)
+    yoga_classes_available = yoga_classes_available_now(request)</td>
+<td>It retrieves the classes available for booking.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.instance.member_id = request.user.id</td>
+<td>The reservation form is displayed, and the field's options are limited to only the logged-in users.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>new_reservation = form.save()
+            valid_reservation(
+                request, new_reservation, yoga_classes_available)</td>
+<td>It saves the reservation and calls the valid_reservation function to check if it's acceptable.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>edit_note function:</td>
+</tr>
+<tr>
+<td>note = get_object_or_404(Notes, id=note_id)</td>
+<td>It retrieves the note that the user wishes to edit.<td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>edit_form = NotesForm(instance=note)
+    edit_form.fields["reservation"].queryset = Reservation.objects.filter(
+                member=request.user)</td>
+<td>It displays the form with the fields prepopulated with the previous values. The reservation field is restricted to the logged-in user reservations.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if request.method == 'POST':
+        edit_form = NotesForm(request.POST, instance=note)
+        if edit_form.is_valid():
+            edit_form.save()</td>
+<td>If the form is submitted, the view validates it and saves the update note instance.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>delete_note function:</td>
+</tr>
+<tr>
+<td>note = get_object_or_404(Notes, id=note_id)
+    note.delete()</td>
+<td>It retrieves the note the user chose and deletes it.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
