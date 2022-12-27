@@ -770,3 +770,65 @@ When the function was called again, it was starting from the initial value. Simp
 
 ## Ongoing bugs:
 During testing, I realized that when I tried to retrieve the password, the website was crushing, and the system wasn't allowing me to reset it. I then deleted the 'forgot password?' link to prevent the issue, but I haven't found a solution to fix the bug.
+
+## Deployment:
+- Log into Heroku;
+- On the dashboard, click on **New**;
+- Click the **Create new app** button;
+- Name your app by typing the chosen name under **App name**;
+- Select your region and click the **Create app** button;
+- Create a database in ElephantSql.com;
+- Log in to ElephantSQL to access your dashboard;
+- Click **Create New Instance**;
+- Set up your plan by giving your plan a name (the name of the project);
+- Select the Tiny Turtle (Free) plan
+- You can leave the Tags field blank
+- Click on **Select Region** and select a data center near you;
+- Click the **Review** button;
+- Check your details are correct and then click **Create instance**;
+- Return to the ElephantSQL dashboard and click on the database name for this project;
+- In the URL section, click the copy icon to copy the database URL;
+- In your project workspace, create a file called env.py; 
+- Make sure that this file is included in the .gitignore file;
+- In the env.py file type **import.os**;
+- Set the environment variables: add a blank line, then set a **DATABASE_URL** variable, with the value you just copied from ElephantSQL following this format:**os.environ["DATABASE_URL"]="copied URL from ElephantSQL"**;
+- Add a **SECRET_KEY** following this format: **os.environ["SECRET_KEY"] = "my^secret@key"**;
+- Make sure you save the file;
+- Open up your settings.py file and add the following code below your Path import: **import os**
+ **import dj_database_url**
+ **if os.path.isfile('env.py'):**
+     **import env**
+- A little further down, remove the secret key provided by Django;
+- Reference the variable in the env.py file, so change your SECRET_KEY variable to the following: **SECRET_KEY = os.environ.get('SECRET_KEY')**;
+- Scroll down in your settings file to the database section and comment out the original DATABASES variable;
+- Add this code below: **DATABASES = {**
+    **'default': dj_database_url.parse(os.environ.get****("DATABASE_URL"))**
+ **}**
+- Make sure you save your file;
+- Run the migration command in your terminal to migrate your database structure to the newly-connected ElephantSQL database:
+ **python3 manage.py migrate**;
+- Once the migrations have been completed, head back over to your ElephantSQL dashboard, select your database instance and then select the “Browser” tab on the left;
+- Click **Table queries** to reveal a dropdown list, you can see your database structure here;
+- Add, commit and push your project to GitHub;
+- Go back to the Heroku dashboard and open the Settings tab;
+- On the menu bar, click on **Settings**;
+- In the **Config Vars** section, click on **Reveal Config Vars**;
+- In the field for **KEY** enter **DATABASE_URL**;
+- In the field for **VALUE** copy in your database URL from ElephantSQL, and click **Add**;
+- In the field for **KEY** enter **SECRET_KEY**;
+- In the field for **VALUE** copy the secret key that you used in the env.py file, and click **Add**;
+- Add another Config Var underneath by entering **PORT** in the **KEY** field, **8000** in the VALUE field, and clicking the **Add** button;
+-  Add your Heroku hostname into **ALLOWED_HOSTS** in our settings.py file in this format: **ALLOWED_HOSTS = ['hostname', 'localhost']**;
+- In the root of your workspace create **Procfile**;
+- Inside **Procfile** add the following code: **web: gunicorn projectname.wsgi**
+- Save files, add, commit and push your project to GitHub;
+- Go back to the Heroku dashboard;
+- Scroll up to the main menu bar and click on **Deploy**;
+- In the **Deployment method** section, select **GitHub**;
+- Click **Connect to GitHub**;
+- Enter the name of your repository in the search bar and click **Search**;
+- Once your repository it's shown underneath, click on **Connect**;
+- Scroll down to the **Manual deploy** section;
+- Click on **Deploy branch**;
+- Wait until you see the message **Your app was successfully deployed**;
+- Click on **View** to make sure your mock terminal is up and running.
