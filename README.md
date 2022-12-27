@@ -54,7 +54,7 @@ The design of the website has been implemented using Balsamiq wireframes. The wi
 - [Like / Unlike](https://github.com/MartinaP87/power-yoga/issues/6)
 
 ### As Admin:
-- [Log in as an admin](https://github.com/MartinaP87/power-yoga/issues/1)
+- [Login as an admin](https://github.com/MartinaP87/power-yoga/issues/1)
 - [Create a draft yoga type](https://github.com/MartinaP87/power-yoga/issues/22)
 - [Manage yoga types](https://github.com/MartinaP87/power-yoga/issues/24)
 - [Create a draft yoga class](https://github.com/MartinaP87/power-yoga/issues/23)
@@ -191,7 +191,7 @@ The design of the website has been implemented using Balsamiq wireframes. The wi
 - This section displays a table with the time slots and the days of the current and next week;
 - The days row updates automatically so that the current week is always close-up;
 - Every time a class is published is displayed on the calendar in the relevant cell;
-- This disposition facilitates the view of the classes for a better time planning for the user.
+- This disposition facilitates the view of the classes for better time planning for the user.
 
 ### Reservations Section
 <img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140883/Readme%20images/reservations_i0w6c1.png">
@@ -300,7 +300,7 @@ The results are described underneath:
 <tr>
 <td>note_form.fields["reservation"].queryset = Reservation.objects.filter(
                 member=request.user)</td>
-<td>Filters the note form field reseravtion to only the logedin user's reservations.</td>
+<td>Filters the note form field, reservation to only the logged-in user's reservations.</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -488,7 +488,7 @@ The results are described underneath:
 <td>Yes</td>
 </tr>
 <td>else:
-        messages.error(request, "This class is not longer available")
+        messages.error(request, "This class is no longer available")
         reservation.delete()</td>
 <td>If the reservation is not in the correct time frame, it displays an error message and deletes the reservation.</td>
 <td>Yes</td>
@@ -716,7 +716,7 @@ Through an iteration, it retrieves all the elements of the calendar and all clas
                 }
             }</td>
 <td>If the date of the yoga class is equal to the date displayed on the table, it adds the class of the date 
-on the table to the yoga class title.This will make sure that our class will sit in the right column.</td>
+on the table to the yoga class title. This will make sure that our class will sit in the right column.</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -832,3 +832,20 @@ During testing, I realized that when I tried to retrieve the password, the websi
 - Click on **Deploy branch**;
 - Wait until you see the message **Your app was successfully deployed**;
 - Click on **View** to make sure your mock terminal is up and running.
+
+## Credit:
+- Carmen Ferraro for pictures, content, and inspiration;
+- Code Institute's 'I think therefore I blog' walkthrough project: it helped to build the basic structure of my blog app;
+- [Django documentation](https://docs.djangoproject.com/en/4.1/), Code Institute Tutors, [W3School](https://www.w3schools.com/), [Stackoverflow](https://stackoverflow.com/): helped to understand and resolve bugs;
+- [Grammarly](https://app.grammarly.com/): helped to correct grammar errors.
+
+### Media:
+
+- [Mockup screen generator](https://ui.dev/amiresponsive?): to evaluate the website responsiveness;
+- [Balsamiq](https://balsamiq.cloud/): used for the pages wireframes;
+- [Pexels](): used for two background images;
+- [Google Fonts](https://fonts.google.com/): used for the website's fonts;
+- [Font Awesome](https://fontawesome.com/): used for icons;
+- [Tinyjpg](https://tinyjpg.com/): used to compress images;
+- [Ezgif](https://ezgif.com/jpg-to-webp): used to convert images.
+

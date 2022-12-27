@@ -147,7 +147,7 @@ def valid_reservation(request, reservation, bookable_classes):
     if reservation.yoga_class in bookable_classes:
         check_double_booking(request, reservation.id)
     else:
-        messages.error(request, "This class is not longer available")
+        messages.error(request, "This class is no longer available")
         reservation.delete()
 
 
