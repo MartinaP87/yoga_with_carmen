@@ -29,3 +29,36 @@ The design of the website has been implemented using Balsamiq wireframes. The wi
 
 - ### Reservations Page
 <img src ="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/reservation_page_wireframe_emfaxh.png">
+
+## USER STORIES:
+### As User:
+- [View yoga types](https://github.com/MartinaP87/power-yoga/issues/26)
+- [View info](https://github.com/MartinaP87/power-yoga/issues/27)
+- [View post list](https://github.com/MartinaP87/power-yoga/issues/2)
+- [Site pagination](https://github.com/MartinaP87/power-yoga/issues)
+- [Open a post](https://github.com/MartinaP87/power-yoga/issues/11)
+- [View comments](https://github.com/MartinaP87/power-yoga/issues/9)
+- [View Likes](https://github.com/MartinaP87/power-yoga/issues/10)
+- [Account registration](https://github.com/MartinaP87/power-yoga/issues/8)
+
+### As Signed In User:
+- [View classes](https://github.com/MartinaP87/power-yoga/issues/14)
+- [Book a class](https://github.com/MartinaP87/power-yoga/issues/16)
+- [View reservations](https://github.com/MartinaP87/power-yoga/issues/18)
+- [Delete reservation](https://github.com/MartinaP87/power-yoga/issues/17)
+- [Add note](https://github.com/MartinaP87/power-yoga/issues/19)
+- [Edit note](https://github.com/MartinaP87/power-yoga/issues/20)
+- [Delete note](https://github.com/MartinaP87/power-yoga/issues/21)
+- [View comments]()
+- [Comment on a post](https://github.com/MartinaP87/power-yoga/issues/7)
+- [Like / Unlike](https://github.com/MartinaP87/power-yoga/issues/6)
+
+### As Admin:
+- [Log in as an admin](https://github.com/MartinaP87/power-yoga/issues/1)
+- [Create a draft yoga type](https://github.com/MartinaP87/power-yoga/issues/22)
+- [Manage yoga types](https://github.com/MartinaP87/power-yoga/issues/24)
+- [Create a draft yoga class](https://github.com/MartinaP87/power-yoga/issues/23)
+- [Manage yoga classes](https://github.com/MartinaP87/power-yoga/issues/25)
+- [Create draft posts](https://github.com/MartinaP87/power-yoga/issues/4)
+- [Manage posts](https://github.com/MartinaP87/power-yoga/issues/5)
+- [Approve comments](https://github.com/MartinaP87/power-yoga/issues/3)
