@@ -658,3 +658,103 @@ The results are described underneath:
 </tr>
 </tbody>
 </table>
+
+### Script.js
+
+<table>
+<thead>
+<tr>
+<th>Action or Event</th>
+<th>Expected Result</th>
+<th>Successful?<th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>myTimeout:</td>
+</tr>
+<tr>
+<td>let myTimeout = setTimeout(closeMsg, 2000);
+    function closeMsg() {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }</td>
+<td>It retrieves all alert messages and sets a timeout so that when an alert message displays, it's closed after two seconds.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>diplayClasses function:</td>
+</tr>
+<tr>
+<td>paginator = Paginator(post_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)</td>
+<td>It paginates the posts so that each page displays six posts maximum.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>post_detail function:</td>
+</tr>
+<tr>
+<td>let days = document.getElementsByClassName("day");
+        for (let i = 0; i < days.length; i++) {
+            let day = document.getElementsByClassName("day")[i];
+            let time = document.getElementsByClassName("time")[i];
+            let title = document.getElementsByClassName("class_title")[i];
+            let row_blocks = document.getElementsByClassName("rows");
+            let week_days_collection = document.getElementsByClassName("cols")[0].children;</td>
+<td>
+Through an iteration, it retrieves all the elements of the calendar and all classes details.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>for (let week_day in week_days_collection) {
+                if (day.innerText == week_days_collection[week_day].innerText) {
+                    let new_class = week_days_collection[week_day].className;
+                    title.classList.add(new_class);
+                }
+            }</td>
+<td>If the date of the yoga class is equal to the date displayed on the table, it adds the class of the date 
+on the table to the yoga class title.This will make sure that our class will sit in the right column.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>for (let row_block = 0; row_block < row_blocks.length; row_block++) {
+                let time_titles = row_blocks[row_block].firstElementChild;
+                let time_rows = row_blocks[row_block].children;</td>
+<td>Iterating through all rows, it retrieves the time slots in the table and the time slot of the yoga class.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td> if (time.innerText == time_titles.innerText) {
+                    for (let time_row = 0; time_row < time_rows.length; time_row++) {
+                        let correct_class = time_rows[time_row].className;</td>
+<td>If the time slot displayed in the table is equal to the yoga class time slot, it considers that row.
+It assigns to a variable the classes of the cells in that row.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if (title.classList.contains(correct_class)) {
+                            time_rows[time_row].innerHTML = '<h6 class="font-weight-bold">' + title.innerText; + '</h6>';
+                        }</td>
+<td>If the yoga class title has a class name equal to one of those cells, it assigns the inner text of the cell the value of the yoga class title. The result will be the yoga class title displayed in the correct position in the calendar table.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+### Validator Testing:
+- [W3C Markup Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcarmen-yoga.herokuapp.com%2F)
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/html_validator_cdcbxx.png">
+
+- [The W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator): I tested my css by direct input.
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/css_testing_gylb4m.png">
+
+- [JSHint](https://jshint.com/):
+The testing presented two warnings: "Expected an assignment or function call and instead saw an expression." and considered 'bootstrap' an undefined variable. Unfortunately, I haven't been able to resolve the issues. I have tested the functions manually, using print statements and the results on the browser, and the code works as expected.
+
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/jshint_qu1foj.png">
+
+- PEP8 
+No errors were returned when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/);
