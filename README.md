@@ -552,3 +552,109 @@ The results are described underneath:
 </tr>
 </tbody>
 </table>
+
+### Yoga_blog Views
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/python_testing_blog_kcm1ln.png">
+
+<table>
+<thead>
+<tr>
+<th>Action or Event</th>
+<th>Expected Result</th>
+<th>Successful?<th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>post_list function:</td>
+</tr>
+<tr>
+<td>post_list = Post.objects.filter(status=1).order_by("-created_on")</td>
+<td>Returns a QuerySet that contains all Post objects in the database and orders it so that the most recent is displayed first.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>paginator = Paginator(post_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)</td>
+<td>It paginates the posts so that each page displays six posts maximum.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>post_detail function:</td>
+</tr>
+<tr>
+<td>queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)</td>
+<td>It retrieves the post with the slug value equal to the one passed into the view.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>comments = post.comments.filter(approved=True).order_by("-created_on")</td>
+<td>It retrieves the comments linked to the post and orders them so that the most recent is displayed first.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>liked = False</td>
+<td>It sets the value of liked to False.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if post.likes.filter(id=request.user.id).exists():
+        liked = True</td>
+<td>If a user liked the post, the value liked is set to True.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>commented = False</td>
+<td>It sets the value of commented to False.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td> comment_form = CommentForm()</td>
+<td>It displays an empty comment form.</td>
+<td>Yes</td>
+</tr>
+<td>if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.post = post</td>
+<td>If the comment form is submitted, the email and username values are the logged-in users.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>comment.save()
+            messages.success(
+                request, 'You successfully left a comment.<br>\
+                Your comment is waiting for approval.')
+            commented = True</td>
+<td>It saves the comment instance and displays a success message; it sets the commented value to True.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>else:
+            comment_form = CommentForm()</td>
+<td>If the requested method is GET, it displays an empty comment form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>post_like function:</td>
+</tr>
+<tr>
+<td>post = get_object_or_404(Post, slug=slug)</td>
+<td>It retrieves the post the user is interacting with.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)</td>
+<td>It checks if the user liked the post, if so when the function is called, it removes the like.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
