@@ -848,4 +848,3 @@ During testing, I realized that when I tried to retrieve the password, the websi
 - [Font Awesome](https://fontawesome.com/): used for icons;
 - [Tinyjpg](https://tinyjpg.com/): used to compress images;
 - [Ezgif](https://ezgif.com/jpg-to-webp): used to convert images.
-
