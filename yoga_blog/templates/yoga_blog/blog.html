@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+<!-- Page background -->
+{% block additional_styles %}
+<style>
+    body {
+        background-image: url('https://res.cloudinary.com/dxihsonor/image/upload/v1672077554/Site_images/blog_bg_xxcrdq.webp');
+        background-size: contain;
+        background-color: #d4b4b4;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="row">
+    <div class="col-12 p-5">
+        <h1>Bolg:</h1>
+    </div>
+</div>
+<!-- Post cards -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for post in page_obj %}     
+                <div class="col-md-4 p-5 d-inline">
+                    <div class="card mb-3 border border-dark">
+                        <div class="card-body p-0">
+                            <div class="image-container">
+                                <img class="card-img-top" alt="post_image" src=" {{ post.featured_image.url }}">
+                                <div class="image-flash px-2">
+                                    <p class="author">Author: {{ post.author }}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="post-link px-2">
+                                <h2 class="card-title px-2">{{ post.title }}</h2>
+                                <p class="card-text px-2">{{ post.excerpt }}</p>
+                            </a>
+                            <hr />
+                            <p class="card-text p-2 ">{{ post.created_on|date:"l, d M Y" }} <i
+                                    class="far fa-heart"></i>
+                                {{ post.number_of_likes }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add a row every 3 cards -->
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Pagination -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{%endblock%}
