@@ -758,3 +758,15 @@ The testing presented two warnings: "Expected an assignment or function call and
 
 - PEP8 
 No errors were returned when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/);
+
+## Bugs:
+- In script.js, when I tried to retrieve elements by the class name "day" and access their values, I was relating to them as if they were a single value, which led to an error. 
+I later realized that the request was receiving an HTMLCollection, and to access it I needed to iterate through the elements. Using a for loop fixed the issue.
+
+- After adding the notes form I realized that the reservation field (from which select the reservation the note has to refer to) was presenting too many options. The possible reservations weren't just the logged-in user's reservations but all users. Adding a filter to the queryset of the reservation field fixed the problem.
+
+- When writing the function reduce_available_spaces the available_spaces value of the relevant class was reduced temporarily.
+When the function was called again, it was starting from the initial value. Simply saving the class fixed the problem.
+
+## Ongoing bugs:
+During testing, I realized that when I tried to retrieve the password, the website was crushing, and the system wasn't allowing me to reset it. I then deleted the 'forgot password?' link to prevent the issue, but I haven't found a solution to fix the bug.
