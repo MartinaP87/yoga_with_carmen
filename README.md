@@ -744,6 +744,269 @@ It assigns to a variable the classes of the cells in that row.</td>
 </tbody>
 </table>
 
+### Site Testing
+<table>
+<thead>
+<tr>
+<th>Action or Event</th>
+<th>Expected Result</th>
+<th>Successful?<th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The user clicks on the site brand link.<br>The user clicks on the Home link.</td>
+<td>It opens the home page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Sign Up link in the callout section when signed out.</td>
+<td>It opens the signup form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Sign Up link in the callout section when signed in.</td>
+<td>It redirects to the home page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the about link in the navigation bar.</td>
+<td>It opens the About page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the classes link in the navigation bar.</td>
+<td>It opens the Classes page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the More link on the yoga-type card.</td>
+<td>It opens a modal with the description of the relevant yoga type.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks the X at the top right of the modal.</td>
+<td>It closes the modal.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Blog link in the navigation bar.</td>
+<td>It opens the Blog page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The admin adds more than six posts.</td>
+<td>It displays a maximum of six posts per page.<br>It adds the number of pages on the blog page bottom.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on a post title.</td>
+<td>It opens a post page that displays the post's details.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the heart icon for the first time.</td>
+<td>It redirects to the same page.<br>It increases the number of likes.<br>The heart is fully colored.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the heart icon after they already liked the post.</td>
+<td>It redirects to the same page.<br>It decreases the number of likes.<br>The heart is empty.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Not signed-in user clicks on the heart icon.</td>
+<td>Nothing happens.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user comments on a post and submits it.</td>
+<td>A successful message is displayed.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The comment is approved.</td>
+<td>The comment is visible in the comment section.<br>
+The number of messages increases.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Not signed-in user opens the post.</td>
+<td>The user can view comments but not the comment form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Info link in the navigation bar.</td>
+<td>It opens the Info page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the Book link in the navigation bar.</td>
+<td>It opens the Book page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The admin publishes a yoga class for this or next week.</td>
+<td>The class title is displayed in the correct cell in the calendar.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user selects a class in the past in the booking form and submits it.</td>
+<td>A message 'class not available' is displayed.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user selects a fully booked class in the booking form and submits it.</td>
+<td>A message 'class fully booked' is displayed.</td>
+<td>Yes</td>
+<tr>
+<td>The signed-in user selects a valid class in the past in the booking form and submits it.</td>
+<td>A message about the successful reservation is displayed.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the Reservations link in the navigation bar.</td>
+<td>Open the Reservations page.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user has a reservation.</td>
+<td>The user's reservation is displayed.</td>
+<td>Yes</td>
+<tr>
+<td>The signed-in user clicks on the delete button next to the reservation.</td>
+<td>A modal opens to request deletion confirmation.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks the X at the top right of the modal.</td>
+<td>It closes the modal and avoids deletion.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the delete button of the modal.
+</td>
+<td>The signed-in user deletes the reservation.</td>
+<td>Yes</td>
+<tr>
+<td>The signed-in user selects a class but doesn't write a note and submits the note form.</td>
+<td>A message is displayed of the required field.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user writes a note but doesn't select a class and submits the note form.</td>
+<td>A message is displayed requesting the user to select an item from the list.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user fills up the note form correctly.</td>
+<td>The note is added under the relevant reservation.</td>
+<td>Yes</td>
+<tr>
+<td>The signed-in user clicks on the edit button next to the reservation's note.</td>
+<td>It redirects the user to the edit note form, which is populated with the note's details.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user selects a class but doesn't write a note and submits the edit note form.</td>
+<td>A message is displayed of the required field.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user writes a note but doesn't select a class and submits the edit note form.</td>
+<td>A message is displayed requesting the user to select an item from the list.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user fills up the edit note form correctly.</td>
+<td>The note is updated.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the delete button next to the note.</td>
+<td>A modal opens to request deletion confirmation.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks the X at the top right of the modal.</td>
+<td>It closes the modal and avoids deletion.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The signed-in user clicks on the delete button of the modal.
+</td>
+<td>It deletes the note.</td>
+<td>Yes</td>
+<tr>
+<tr>
+<td>The user clicks on the Sign Up link in the navigation bar.</td>
+<td>It opens the sign-up form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user enters an existing username.<br>The user enters an existing email address.<br>
+The user enters a password too short.<br> The user enters passwords that are not the same.</td>
+<td>The sign-up fails.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user fills up the form correctly.</td>
+<td>It redirects to the home page and displays a success message.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Sign In link in the sign-up form.</td>
+<td>It opens the sign-in form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Login link in the navigation bar.</td>
+<td>It opens the sign-in form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user username or password isn't correct.</td>
+<td>It displays an error message.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user fills up the form correctly.</td>
+<td>It redirects the user to the home page and displays a message of successful sign-in.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Sign Up link in the sign-in form.</td>
+<td>It Opens the sign-up form.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Logout link in the navigation bar.</td>
+<td>It opens a message requesting the user to confirm the action.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Sign Out link in the message.</td>
+<td>It redirects to the home page and displays a message of successful logout.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Facebook icon in the footer.</td>
+<td>It opens the relevant Facebook page in a different tab.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the Instagram icon in the footer.</td>
+<td>It opens the relevant Instagram page in a different tab.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>The user clicks on the YouTube icon in the footer.</td>
+<td>It opens the relevant Youtube page in a different tab.</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
 ### Validator Testing:
 - [W3C Markup Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcarmen-yoga.herokuapp.com%2F)
 <img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140881/Readme%20images/html_validator_cdcbxx.png">
@@ -754,7 +1017,7 @@ It assigns to a variable the classes of the cells in that row.</td>
 - [JSHint](https://jshint.com/):
 The testing presented two warnings: "Expected an assignment or function call and instead saw an expression." and considered 'bootstrap' an undefined variable. Unfortunately, I haven't been able to resolve the issues. I have tested the functions manually, using print statements and the results on the browser, and the code works as expected.
 
-<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/jshint_qu1foj.png">
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672177388/Readme%20images/jshint_ed2pzq.png">
 
 - PEP8 
 No errors were returned when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/);

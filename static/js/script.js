@@ -1,6 +1,6 @@
 window.onload = function () {
     // Alert messages timeout function
-    let myTimeout = setTimeout(closeMsg, 2000);
+    setTimeout(closeMsg, 2000);
     function closeMsg() {
         let messages = document.getElementById("msg");
         let alert = new bootstrap.Alert(messages);
@@ -37,6 +37,5 @@ window.onload = function () {
         }
     }
     // Call functions
-    myTimeout;
     displayClasses();
 };

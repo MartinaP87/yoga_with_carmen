@@ -64,7 +64,7 @@ class Notes(models.Model):
     reservation = models.ForeignKey(
         Reservation, on_delete=models.CASCADE, related_name="reservation_note")
     annotation = models.CharField(
-        max_length=300, blank=True, default="Remember...")
+        max_length=300, blank=False, default="Remember...")
 
     def __str__(self):
         return f"{self.reservation}\n  {self.annotation}"
