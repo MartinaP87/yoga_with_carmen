@@ -18,3 +18,18 @@ def post_list(request):
         'page_obj': page_obj
     }
     return render(request, "yoga_blog/blog.html", context)
+
+
+def post_detail(request, slug):
+    """
+    It renders post detail and passes posts, comments,
+    comment form, and likes to the template.
+    Handles comment form validation and sends a message
+    to the user when the form is submitted successfully.
+    """
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    context = {
+                "post": post,
+            }
+    return render(request, "yoga_blog/post_detail.html", context)

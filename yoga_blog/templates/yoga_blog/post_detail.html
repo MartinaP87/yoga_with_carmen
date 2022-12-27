@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block additional_styles %}
+<!-- Page background -->
+<style>
+  body {
+    background-image: url('https://res.cloudinary.com/dxihsonor/image/upload/v1672077554/Site_images/blog_bg_xxcrdq.webp');
+    background-size: contain;
+    background-color: #d4b4b4;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Post details -->
+<div class="masthead">
+    <div class="container">
+        <div class="row">
+            <!-- Post title, author and created on date -->
+            <div class="col-md-3 masthead-text mt-3 w-100">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="post-subtitle opaque">{{ post.author }}</p>
+                <p class="opaque">{{ post.created_on|date:"l, d M" }}</p>
+            </div>
+            <!-- Post image -->
+            <div class="d-none d-md-block col-md-6 masthead-image">            
+                <img src=" {{ post.featured_image.url }}" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Post content -->
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <p class="card-text ">
+                    {{ post.content | safe }}
+                </p>
+ 
+</div>
+
+{% endblock content %}

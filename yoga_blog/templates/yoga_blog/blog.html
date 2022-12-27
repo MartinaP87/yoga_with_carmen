@@ -33,7 +33,7 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link px-2">
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link px-2">
                                 <h2 class="card-title px-2">{{ post.title }}</h2>
                                 <p class="card-text px-2">{{ post.excerpt }}</p>
                             </a>
