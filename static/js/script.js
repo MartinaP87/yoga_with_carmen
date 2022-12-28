@@ -2,9 +2,11 @@ window.onload = function () {
     // Alert messages timeout function
     setTimeout(closeMsg, 3000);
     function closeMsg() {
+        if (document.getElementById("msg")) {
         let messages = document.getElementById("msg");
         let alert = new bootstrap.Alert(messages);
         alert.close();
+        }
     }
 
     // Display classes in calendar according to day and time slot

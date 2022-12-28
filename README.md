@@ -1015,9 +1015,11 @@ The user enters a password too short.<br> The user enters passwords that are not
 <img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672140878/Readme%20images/css_testing_gylb4m.png">
 
 - [JSHint](https://jshint.com/):
-The testing presented two warnings: "Expected an assignment or function call and instead saw an expression." and considered 'bootstrap' an undefined variable. Unfortunately, I haven't been able to resolve the issues. I have tested the functions manually, using print statements and the results on the browser, and the code works as expected.
+The testing presented two warnings: "Expected an assignment or function call and instead saw an expression." Unfortunately, I haven't been able to resolve the issues though. I have tested the functions manually, using print statements and the results on the browser, and the code works as expected.
+It also presented a warning since it considered 'bootstrap' an undefined variable.
+Since bootstrap is defined in another file, the linter can't see the variable definition, so under Code Institute tutor advice I suppressed the warning.
 
-<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672177388/Readme%20images/jshint_ed2pzq.png">
+<img src="https://res.cloudinary.com/dxihsonor/image/upload/v1672225354/Readme%20images/jshint_s4niie.png">
 
 - PEP8 
 No errors were returned when passing through the official [CI Python Linter](https://pep8ci.herokuapp.com/);
